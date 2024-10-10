@@ -3,7 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-Console.WriteLine("Hello, World!");
+
+
+
+
 public class Genero
 {
     [Key]
@@ -32,7 +35,32 @@ public class applicationContext : DbContext
     public DbSet<Filme> Filme { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-       optionsBuilder.UseSqlServer(@"Server = .\MSSQLLocalDB; Database=orm;Trusted_Connection = True;");
+        optionsBuilder.UseSqlServer(@"Server = Sharon; Database=orm;Trusted_Connection = True;TrustServerCertificate=True;MultipleActiveResultSets=true;");
     }
 
+
+
+
+    static void Main(string[] args)
+    {
+        using (var context = new applicationContext())
+        {
+            var genero = new Genero()
+            {
+                Descrição = "Gospel"
+            };
+            context.Genero.Add(genero);
+            context.SaveChanges();
+
+            var filme = new Filme()
+            {
+                Titulo = " De volta para a eternidade",
+                GeneroId = genero.Id
+            };
+            context.Filme.Add(filme);
+            context.SaveChanges();
+
+        }
+
+    }
 }

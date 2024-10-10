@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ORM_Exemplo.Migrations
 {
     [DbContext(typeof(applicationContext))]
-    [Migration("20241010210828_ormdb")]
-    partial class ormdb
+    [Migration("20241010231052_ORM")]
+    partial class ORM
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

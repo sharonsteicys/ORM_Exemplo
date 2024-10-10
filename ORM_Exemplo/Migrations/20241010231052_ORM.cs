@@ -5,7 +5,7 @@
 namespace ORM_Exemplo.Migrations
 {
     /// <inheritdoc />
-    public partial class ormdb : Migration
+    public partial class ORM : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
